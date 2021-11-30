@@ -21,15 +21,13 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Microsoft Partner Network (e189eff3-24f5-4964-87fc-1474f1735e7e)'
-    appType: 'webAppLinux'
-    WebAppName: 'fftwebtest'
-    deployToSlotOrASE: true
-    ResourceGroupName: 'FFT_DEVOPS'
-    SlotName: 'production'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+- task: CopyFiles@2
+      inputs:
+        targetFolder: '$(Build.ArtifactStagingDirectory)' 
+ 
+- task: PublishBuildArtifacts@1    
+displayName: 'Publish Artifact: drop'
+inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
 
 
