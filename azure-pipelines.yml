@@ -22,13 +22,9 @@ steps:
   inputs:
     ConnectionType: 'AzureRM'
     azureSubscription: 'Microsoft Partner Network (e189eff3-24f5-4964-87fc-1474f1735e7e)'
-    appType: 'webAppLinux'
+    appType: 'webApp'
     WebAppName: 'nodetest5511'
-    deployToSlotOrASE: true
-    ResourceGroupName: 'FFT_Interns'
-    SlotName: 'production'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    RuntimeStack: 'NODE|12-lts'
   
 
 # Build a general Node.js project with npm.
