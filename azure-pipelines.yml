@@ -16,11 +16,13 @@ steps:
   displayName: 'npm install and build'
   
 - task: CopyFiles@2
-  inputs:
-    Contents: '**/*.war'
-    targetFolder: '$(build.artifactStagingDirectory)'
-
-- task: PublishBuildArtifacts@1
+      inputs:
+        targetFolder: '$(Build.ArtifactStagingDirectory)' 
+ 
+- task: PublishBuildArtifacts@1    
+displayName: 'Publish Artifact: drop'
+inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
 
 # Node.js
 - task: AzureRmWebAppDeployment@4
