@@ -15,6 +15,9 @@ steps:
     npm run build
   displayName: 'npm install and build'
 
+- task: ArchiveFiles@1
+  inputs:
+    rootFolder: public
 - task: PublishBuildArtifacts@1
   
 
